@@ -536,15 +536,15 @@ setWbCom(name=false, url=false) {
 }
 
 RandomPass(kind:="Wwd",length:=8){
-;kind:ç±»å‹ Wå¤§å†™ wå°å†™ dæ•°å­— å¯ä»¥ç»„åˆ length:é•¿åº¦
+;kind:ÀàĞÍ W´óĞ´ wĞ¡Ğ´ dÊı×Ö ¿ÉÒÔ×éºÏ length:³¤¶È
 char := [1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",0,1,2,3,4,5,6,7,8,9]
-char[0] := 0 ;å®šä¹‰æ•°ç»„
+char[0] := 0 ;¶¨ÒåÊı×é
 option := kind
-kind = 0 ;å¿…é¡»å…ˆèµ‹å€¼  ä¸ç„¶åé¢çš„åŠ æ³•æ— æ•ˆ
-kind := InStr(option,"W",1) ? kind+100 : kind ;InStråŒºåˆ†å¤§å°å†™
+kind = 0 ;±ØĞëÏÈ¸³Öµ  ²»È»ºóÃæµÄ¼Ó·¨ÎŞĞ§
+kind := InStr(option,"W",1) ? kind+100 : kind ;InStrÇø·Ö´óĞ¡Ğ´
 kind := InStr(option,"w",1) ? kind+10 : kind
 kind := InStr(option,"d") ? kind+1 : kind
-;åˆ¤æ–­ç±»å‹å¹¶è®¾ç½®éšæœºæ•°æœ€å°æœ€å¤§å€¼
+;ÅĞ¶ÏÀàĞÍ²¢ÉèÖÃËæ»úÊı×îĞ¡×î´óÖµ
 if kind=111
     min:=0,max:=61
 else if kind=110
@@ -583,10 +583,10 @@ WBGet(WinTitle="ahk_class IEFrame", Svr#=1) {               ;// based on ComObjQ
 }
 
 
-;ä½œè€…ï¼šè¯·å‹¿æ‰“æ‰°
-;åŠŸèƒ½ï¼šé€‚ç”¨GItHubé¡¹ç›®æ›´æ–°ï¼ŒåŠ å…¥è„šæœ¬ä¸­å³å¯ä½¿ç”¨è‡ªå·±çš„GitHubé¡¹ç›®åœ°å€
-;ä»‹ç»ï¼šæ ¹æ®GitHubä¸­Commitkeyè·å–æ˜¯å¦æ›´æ–°
-;æ³¨æ„ï¼šèƒ½å¤Ÿä½¿ç”¨GitHubçš„æœ‹å‹åº”è¯¥å¯¹ä»£ç éƒ½éå¸¸ç†Ÿæ‚‰é‚£ä¹ˆæœ‰å…¶ä»–éœ€è¦è¯·è‡ªè¡Œä¿®æ”¹
+;×÷Õß£ºÇëÎğ´òÈÅ
+;¹¦ÄÜ£ºÊÊÓÃGItHubÏîÄ¿¸üĞÂ£¬¼ÓÈë½Å±¾ÖĞ¼´¿ÉÊ¹ÓÃ×Ô¼ºµÄGitHubÏîÄ¿µØÖ·
+;½éÉÜ£º¸ù¾İGitHubÖĞCommitkey»ñÈ¡ÊÇ·ñ¸üĞÂ
+;×¢Òâ£ºÄÜ¹»Ê¹ÓÃGitHubµÄÅóÓÑÓ¦¸Ã¶Ô´úÂë¶¼·Ç³£ÊìÏ¤ÄÇÃ´ÓĞÆäËûĞèÒªÇë×ÔĞĞĞŞ¸Ä
 
 Git_Update(GitUrl,GressSet:="Hide"){
 	if not W_InternetCheckConnection(GitUrl)
@@ -594,17 +594,17 @@ Git_Update(GitUrl,GressSet:="Hide"){
 	SplitPath,GitUrl,Project_Name
 	RegRead,Reg_Commitkey,HKEY_CURRENT_USER,%Project_Name%,Commitkey
 	if GressSet=Show
-		Progress,100,% Reg_Commitkey " >>> " Git_CcommitKey.Edition,æ£€æŸ¥æ›´æ–°è¯·ç¨ç­‰...,% Project_Name
+		Progress,100,% Reg_Commitkey " >>> " Git_CcommitKey.Edition,¼ì²é¸üĞÂÇëÉÔµÈ...,% Project_Name
 	Git_CcommitKey:=Git_CcommitKey(GitUrl)
-	if not Git_CcommitKey.Edition{	;è·å–æ›´æ–°å¤±è´¥è¿”å›
+	if not Git_CcommitKey.Edition{	;»ñÈ¡¸üĞÂÊ§°Ü·µ»Ø
 		Progress,Off
 		return
 	}
-	if not Reg_Commitkey or (Reg_Commitkey<>Git_CcommitKey.Edition){	;å­˜åœ¨æ›´æ–°å¼€å§‹æ›´æ–°
-		Progress,1 T Cx0 FM10,åˆå§‹åŒ–ä¸‹è½½,% Reg_Commitkey " >>> " Git_CcommitKey.Edition " ç®€ä»‹ï¼š" Git_CcommitKey.Commit,% Project_Name
+	if not Reg_Commitkey or (Reg_Commitkey<>Git_CcommitKey.Edition){	;´æÔÚ¸üĞÂ¿ªÊ¼¸üĞÂ
+		Progress,1 T Cx0 FM10,³õÊ¼»¯ÏÂÔØ,% Reg_Commitkey " >>> " Git_CcommitKey.Edition " ¼ò½é£º" Git_CcommitKey.Commit,% Project_Name
 		Git_Downloand(Git_CcommitKey,Project_Name)
 	}else{
-		Progress,,,æš‚æ— æ›´æ–°,% Project_Name
+		Progress,,,ÔİÎŞ¸üĞÂ,% Project_Name
 	}
 	Progress,Off
 	return
@@ -644,7 +644,7 @@ bat=
 	ExitApp
 }
 
-SmartZip(s, o, t = 16)	;å†…ç½®è§£å‹å‡½æ•°
+SmartZip(s, o, t = 16)	;ÄÚÖÃ½âÑ¹º¯Êı
 {
 	IfNotExist, %s%
 		return, -1
@@ -685,7 +685,7 @@ Git_CcommitKey(Project_Url){
 	}
 }
 
-W_InternetCheckConnection(lpszUrl){ ;æ£€æŸ¥FTPæœåŠ¡æ˜¯å¦å¯è¿æ¥
+W_InternetCheckConnection(lpszUrl){ ;¼ì²éFTP·şÎñÊÇ·ñ¿ÉÁ¬½Ó
 	FLAG_ICC_FORCE_CONNECTION := 0x1
 	dwReserved := 0x0
 	return, DllCall("Wininet.dll\InternetCheckConnection", "Ptr", &lpszUrl, "UInt", FLAG_ICC_FORCE_CONNECTION, "UInt", dwReserved, "Int")
@@ -715,7 +715,7 @@ Z_Down(url:="http://61.135.169.125/forbiddenip/forbidden.html", Proxy:="",e:="ut
 			}
 			Progress,100
 			While (DllCall("Wininet.dll\InternetQueryDataAvailable", "Ptr", F, "UIntP", S, "UInt", 0, "Ptr", 0) && (S > 0)) {             
-				fj	?(DllCall("Wininet.dll\InternetReadFile", "Ptr", F, "Ptr", &Buf + C, "UInt", S, "UIntP", R),C += R,DllCall("QueryPerformanceCounter", "Int64*", y),((t:=(y-x)/i) >=1)?(Test(e,Round(c/fx,2) fz " | " Round(((c-w)/1024)/t) "KB/ç§’",Round(c/fx/percent*100)),x:=y,w:=c):"")
+				fj	?(DllCall("Wininet.dll\InternetReadFile", "Ptr", F, "Ptr", &Buf + C, "UInt", S, "UIntP", R),C += R,DllCall("QueryPerformanceCounter", "Int64*", y),((t:=(y-x)/i) >=1)?(Test(e,Round(c/fx,2) fz " | " Round(((c-w)/1024)/t) "KB/Ãë",Round(c/fx/percent*100)),x:=y,w:=c):"")
 					:(VarSetCapacity(b, c+s, 0),DllCall("RtlMoveMemory", "ptr", &b, "ptr", &buf, "ptr", c),DllCall("wininet\InternetReadFile", "ptr", f, "ptr", &b+c, "uint", s, "uint*", r),VarSetCapacity(buf, c+=r, 0), DllCall("RtlMoveMemory", "ptr", &buf, "ptr", &b, "ptr", c))
 			}
 			(q?((fj=c)?"":q["Error"]:=c):""),(File?(o.rawWrite(buf, c), o.close()):""), DllCall("wininet\InternetCloseHandle", "ptr", f)
